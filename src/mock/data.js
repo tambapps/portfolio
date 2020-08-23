@@ -25,7 +25,7 @@ export const aboutData = {
   paragraphThree: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
   resume: 'https://drive.google.com/uc?export=download&id=1UyBpApZhxcS3sKNtKrmRLU_NqIkGRjTa',
   // use Google Drive to upload your file and replace YOUR FILE ID after id=... or use any CDN you prefer
-  // Alternatively, empty the string to disable the button
+  // Alternatively, empty the string to disable the button if it's not needed
 };
 
 // PROJECTS DATA
