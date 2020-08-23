@@ -43,9 +43,11 @@ const About = () => {
                 {resume && (
                   <span className="d-flex mt-3">
                     <a
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="cta-btn cta-btn--resume"
                       href={resume}
-                      download="Resume.pdf" // Name of the downloadable file
+                      download // Make the file downloadable
                     >
                       Resume
                     </a>
