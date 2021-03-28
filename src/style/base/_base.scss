@@ -5,4 +5,13 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  --color-page-background: #{$light-color};
+  --color-heading: #{$light-text-heading};
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-page-background: #{$dark-color};
+    --color-heading: #{$dark-text-heading};
+  }
 }
