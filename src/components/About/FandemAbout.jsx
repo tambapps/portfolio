@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section id="about" style={{ background: 'transparent' }}>
       <Container>
-        <Title title="About Me" />
+        <Title title="About The Project" />
         <Row className="about-wrapper">
           <Col md={6} sm={12}>
             <Fade bottom duration={1000} delay={600} distance="30px">

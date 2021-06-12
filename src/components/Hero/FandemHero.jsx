@@ -26,6 +26,16 @@ export default () => {
                   {cta}
                 </Link>
               </span>
+              <span
+                className="cta-btn cta-btn--hero"
+                style={{
+                  marginLeft: 20,
+                }}
+              >
+                <Link to="download" smooth duration={1000}>
+                  Download
+                </Link>
+              </span>
             </p>
           )}
         </Fade>
