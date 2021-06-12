@@ -1,12 +1,19 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import Fade from 'react-reveal/Fade';
 import DownloadImg from '../Image/DownloadImg';
-import Title from '../Title/Title';
 
 const Download = () => {
   // TODO handle better mobile display
   return (
     <section id="download" style={{ background: 'transparent' }}>
-      <Title title="Download" />
+      <Container>
+        <Fade bottom duration={1000} delay={300} distance="0px">
+          <h2 className="section-title" style={{ color: '#ffffff' }}>
+            Download
+          </h2>
+        </Fade>
+      </Container>
       <div
         style={{
           display: 'flex',
@@ -31,7 +38,7 @@ const Download = () => {
             rel="noreferrer"
           >
             <span className="cta-btn cta-btn--hero">
-              <h1 className="hero-title">Linux</h1>
+              <h1 className="hero-title">Linux amd64</h1>
               <DownloadImg alt="Linux" filename="linux.png" />
             </span>
           </a>
