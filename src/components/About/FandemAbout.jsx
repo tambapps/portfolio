@@ -6,7 +6,7 @@ import AboutImg from '../Image/AboutImg';
 import { aboutData } from '../../mock/fandem';
 
 const About = () => {
-  const { img, paragraphOne, paragraphTwo, paragraphThree, resume } = aboutData;
+  const { img, paragraphOne, paragraphTwo, paragraphThree } = aboutData;
   const isDesktop = window.innerWidth > 769;
   const isMobile = !isDesktop;
 
@@ -28,19 +28,16 @@ const About = () => {
                 <p className="about-wrapper__info-text">{paragraphOne}</p>
                 <p className="about-wrapper__info-text">{paragraphTwo}</p>
                 <p className="about-wrapper__info-text">{paragraphThree}</p>
-                {resume && (
-                  <span className="d-flex mt-3">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cta-btn cta-btn--resume"
-                      href={resume}
-                      download // Make the file downloadable
-                    >
-                      Resume
-                    </a>
-                  </span>
-                )}
+                <span className="d-flex mt-3">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cta-btn cta-btn--resume"
+                    href="https://github.com/tambapps/P2P-File-Sharing"
+                  >
+                    Consult source
+                  </a>
+                </span>
               </div>
             </Fade>
           </Col>

@@ -1,6 +1,6 @@
 export const heroData = {
   title: 'Fandem',
-  subtitle: 'A P2P file sharing application',
+  subtitle: 'a Peer to Peer file sharing application',
   cta: 'Learn more',
 };
 
