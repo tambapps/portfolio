@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import DownloadImg from '../Image/DownloadImg';
 
 const Download = () => {
-  // TODO handle better mobile display
   return (
     <section id="download" style={{ background: 'transparent' }}>
       <Container>
@@ -14,12 +13,8 @@ const Download = () => {
           </h2>
         </Fade>
       </Container>
-      <div
-        style={{
-          display: 'flex',
-        }}
-      >
-        <div style={{ width: '50%' }}>
+      <Row>
+        <Col md={6} sm={12}>
           <a
             href="https://play.google.com/store/apps/details?id=com.tambapps.p2p.peer_transfer.android"
             target="_blank"
@@ -30,8 +25,8 @@ const Download = () => {
               <DownloadImg alt="Android" filename="android.png" />
             </span>
           </a>
-        </div>
-        <div style={{ width: '50%' }}>
+        </Col>
+        <Col md={6} sm={12}>
           <a
             href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/tambapps-fandem-desktop_2.1-1_amd64.deb"
             target="_blank"
@@ -42,8 +37,8 @@ const Download = () => {
               <DownloadImg alt="Linux" filename="linux.png" />
             </span>
           </a>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </section>
   );
 };
