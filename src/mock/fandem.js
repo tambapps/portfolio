@@ -5,11 +5,12 @@ export const heroData = {
 };
 
 export const aboutData = {
-  img: 'tambapps.jpg',
+  img: 'fandem.webp',
   paragraphOne:
-    'Fandem is an app to transfer files between two devices. It works with both Android and Desktop',
+    'Fandem is an app to transfer files between two devices. The data goes from the sender, directly to the receiver, without any intermediate server (Peer to Peer transfer). ' +
+    'This kind of transfer allows you to keep your data private',
   paragraphTwo:
-    'The applications on all platforms are compatible, meaning that ou can send/receive a file from a smartphone to a computer, and vice-versa',
+    'It works with both Android and Desktop, meaning that ou can send/receive a file from a smartphone to a computer, and vice-versa',
   paragraphThree: '',
   // resume: 'https://drive.google.com/uc?export=download&id=1UyBpApZhxcS3sKNtKrmRLU_NqIkGRjTa',
   // use Google Drive to upload your file and replace YOUR FILE ID after id=... or use any CDN you prefer

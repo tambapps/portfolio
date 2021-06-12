@@ -32,7 +32,7 @@ export const aboutData = {
 export const projectsData = [
   {
     id: nanoid(),
-    img: 'fandem.webp',
+    img: 'fandem_banner.webp',
     title: 'Fandem',
     info: 'Fandem is a cross-platform (Desktop, Android) project for sharing files between two devices, as long as they are on the same network (Wi-Fi, mobile hotspost).',
     info2:
@@ -42,7 +42,7 @@ export const projectsData = [
   },
   {
     id: nanoid(),
-    img: 'groovyshell.webp',
+    img: 'groovyshell_banner.webp',
     title: 'Groovy Shell for Android',
     info: 'This app allows you to write and run Groovy code directly from your smartphone through an interactive shell.',
     info2:
