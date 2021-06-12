@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import DownloadImg from '../Image/DownloadImg';
+// needed to avoid rows taking larger than whole width
+import '../../style/row_override.scss';
 
 const Download = () => {
   return (

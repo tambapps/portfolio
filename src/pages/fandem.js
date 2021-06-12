@@ -5,6 +5,7 @@ import FandemHero from '../components/Hero/FandemHero';
 import FandemAbout from '../components/About/FandemAbout';
 import Footer from '../components/Footer/Footer';
 import Download from '../components/Download/Download';
+import Steps from '../components/Steps/Steps';
 
 export default () => {
   return (
@@ -12,6 +13,7 @@ export default () => {
       <FandemHero />
       <FandemAbout />
       <Download />
+      <Steps />
       <Footer />
     </div>
   );
