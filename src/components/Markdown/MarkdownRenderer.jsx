@@ -38,19 +38,28 @@ const hComponent = (props, fontSize) => {
 const components = {
   // eslint-disable-next-line react/prop-types
   code({ node, inline, className, children, ...props }) {
+    let codeComponent;
     if (inline) {
-      return (
+      codeComponent = (
         <code className={className} {...props}>
           {children}
         </code>
       );
+    } else {
+      codeComponent = (
+        <div className="groovy-code">
+          <SyntaxHighlighter language="groovy" PreTag="div" {...props} style={coldarkDark}>
+            {children}
+          </SyntaxHighlighter>
+        </div>
+      );
     }
+    const isDesktop = window.innerWidth > 769;
+    const isMobile = !isDesktop;
     return (
-      <div className="groovy-code">
-        <SyntaxHighlighter language="groovy" PreTag="div" {...props} style={coldarkDark}>
-          {children}
-        </SyntaxHighlighter>
-      </div>
+      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
+        {codeComponent}
+      </Fade>
     );
   },
   // eslint-disable-next-line react/prop-types
