@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import '../../style/markdown.scss';
 
 const ReactMarkdown = require('react-markdown');
 
@@ -33,6 +35,23 @@ const hComponent = (props, fontSize) => {
   );
 };
 const components = {
+  // eslint-disable-next-line react/prop-types
+  code({ node, inline, className, children, ...props }) {
+    if (inline) {
+      return (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    }
+    return (
+      <div className="groovy-code">
+        <SyntaxHighlighter language="groovy" PreTag="div" {...props}>
+          {children}
+        </SyntaxHighlighter>
+      </div>
+    );
+  },
   // eslint-disable-next-line react/prop-types
   h1({ level, ...props }) {
     return hComponent(props, '5.6rem');

@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/main.scss';
-import '../style/markdown.scss';
 import MarkdownRenderer from '../components/Markdown/MarkdownRenderer';
 
 export default () => {
