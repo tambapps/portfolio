@@ -45,7 +45,6 @@ const components = {
         </code>
       );
     }
-    console.log(18);
     return (
       <div className="groovy-code">
         <SyntaxHighlighter language="groovy" PreTag="div" {...props} style={coldarkDark}>
