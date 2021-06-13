@@ -47,7 +47,7 @@ export const projectsData = [
     info: 'This app allows you to write and run Groovy code directly from your smartphone through an interactive shell.',
     info2:
       'You can do all kinds of things like managing files, perform image processing, display charts and more... There is also a functionality allowing you to launch Groovy scripts in the background (when the app is closed), even periodically',
-    url: 'https://tambapps.github.io/groovy-shell-user-manual/',
+    url: '/groovy-shell',
     // no repo (it is private)
   },
   // TODO add a project for all software libraries I've created

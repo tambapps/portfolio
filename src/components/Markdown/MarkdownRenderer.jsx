@@ -105,7 +105,6 @@ class MarkdownRenderer extends React.Component {
     if (href.startsWith(prefix)) {
       const prefixToDelete = `${prefix}groovy-shell-user-manual/`;
       const url = `${window.location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
-      console.log(url);
       return url;
     }
     return href;

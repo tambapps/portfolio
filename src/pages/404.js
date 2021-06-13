@@ -18,7 +18,7 @@ export default () => {
     if (!path.endsWith('/')) {
       path += '/';
     }
-    const url = `https://tambapps.github.io/groovy-shell-user-manual/${path}index.md`;
+    const url = `https://raw.githubusercontent.com/tambapps/groovy-shell-user-manual/main${path}index.md`;
     return (
       // don't know if it actually works
       <StatusCode code={200}>
