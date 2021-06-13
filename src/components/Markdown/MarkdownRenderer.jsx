@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import '../../style/markdown.scss';
+import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const ReactMarkdown = require('react-markdown');
 
@@ -44,9 +45,10 @@ const components = {
         </code>
       );
     }
+    console.log(18);
     return (
       <div className="groovy-code">
-        <SyntaxHighlighter language="groovy" PreTag="div" {...props}>
+        <SyntaxHighlighter language="groovy" PreTag="div" {...props} style={coldarkDark}>
           {children}
         </SyntaxHighlighter>
       </div>
