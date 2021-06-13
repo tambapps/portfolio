@@ -4,93 +4,50 @@ import Fade from 'react-reveal/Fade';
 
 const ReactMarkdown = require('react-markdown');
 
+const hComponent = (props, fontSize) => {
+  const isDesktop = window.innerWidth > 769;
+  const isMobile = !isDesktop;
+  let id = null;
+  // eslint-disable-next-line react/prop-types
+  if (props.children.length === 1) {
+    // eslint-disable-next-line react/prop-types
+    id = props.children[0].toString().toLowerCase().replace(/ /g, '-');
+  }
+  return (
+    <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
+      <h3
+        className="hero-title"
+        style={{
+          color: '#ffffff',
+          fontSize,
+        }}
+        {...props}
+        id={id}
+      >
+        {
+          /* eslint-disable-next-line react/prop-types */
+          props.children
+        }
+      </h3>
+    </Fade>
+  );
+};
 const components = {
   // eslint-disable-next-line react/prop-types
   h1({ level, ...props }) {
-    const isDesktop = window.innerWidth > 769;
-    const isMobile = !isDesktop;
-    return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <h1
-          className="hero-title"
-          style={{
-            color: '#ffffff',
-          }}
-          {...props}
-        >
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </h1>
-      </Fade>
-    );
+    return hComponent(props, '5.6rem');
   },
   // eslint-disable-next-line react/prop-types
   h2({ level, ...props }) {
-    const isDesktop = window.innerWidth > 769;
-    const isMobile = !isDesktop;
-    return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <h2
-          className="hero-title"
-          style={{
-            color: '#ffffff',
-            fontSize: '3.5rem',
-          }}
-          {...props}
-        >
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </h2>
-      </Fade>
-    );
+    return hComponent(props, '3.5rem');
   },
   // eslint-disable-next-line react/prop-types
   h3({ level, ...props }) {
-    const isDesktop = window.innerWidth > 769;
-    const isMobile = !isDesktop;
-    return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <h3
-          className="hero-title"
-          style={{
-            color: '#ffffff',
-            fontSize: '3.5rem',
-          }}
-          {...props}
-        >
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </h3>
-      </Fade>
-    );
+    return hComponent(props, '3.5rem');
   },
   // eslint-disable-next-line react/prop-types
   h4({ level, ...props }) {
-    const isDesktop = window.innerWidth > 769;
-    const isMobile = !isDesktop;
-    return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <h4
-          className="hero-title"
-          style={{
-            color: '#ffffff',
-            fontSize: '3.5rem',
-          }}
-          {...props}
-        >
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </h4>
-      </Fade>
-    );
+    return hComponent(props, '3.5rem');
   },
   // eslint-disable-next-line react/prop-types
   p({ level, ...props }) {
