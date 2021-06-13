@@ -4,13 +4,30 @@ import { Helmet } from 'react-helmet';
 import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { StatusCode } from 'react-http-status-code';
 import { headData } from '../mock/data';
 import '../style/main.scss';
+import MarkdownRenderer from '../components/Markdown/MarkdownRenderer';
 
 export default () => {
   const { lang } = headData;
 
+  // hack to allow dynamic paths for groovy-shell
+  if (window.location.pathname.startsWith('/groovy-shell/')) {
+    let path = window.location.pathname.substr('/groovy-shell'.length);
+    if (!path.endsWith('/')) {
+      path += '/';
+    }
+    const url = `https://tambapps.github.io/groovy-shell-user-manual/${path}index.md`;
+    return (
+      // don't know if it actually works
+      <StatusCode code={200}>
+        <div style={{ background: '#001C31' }} className="markdown">
+          <MarkdownRenderer url={url} />
+        </div>
+      </StatusCode>
+    );
+  }
   return (
     <>
       <Helmet>

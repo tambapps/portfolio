@@ -144,11 +144,17 @@ class MarkdownRenderer extends React.Component {
   };
 
   transformLinkUri = (href) => {
-    return href.startsWith(prefix) ? `${href}index.md` : href;
+    // hack to allow dynamic urls
+    if (href.startsWith(prefix)) {
+      const prefixToDelete = `${prefix}groovy-shell-user-manual/`;
+      const url = `${window.location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
+      console.log(url);
+      return url;
+    }
+    return href;
   };
 
   render() {
-    console.log('123123123');
     const { markdown } = this.state;
     return (
       <div>
