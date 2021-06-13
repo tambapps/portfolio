@@ -12,8 +12,8 @@ export default () => {
     <div style={{ background: 'linear-gradient(#3F51B5, #43cea2)', width: '100%' }}>
       <FandemHero />
       <FandemAbout />
-      <Download />
       <Steps />
+      <Download />
       <Footer />
     </div>
   );
