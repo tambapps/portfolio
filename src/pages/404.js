@@ -9,13 +9,15 @@ import { headData } from '../mock/data';
 import '../style/main.scss';
 import MarkdownRenderer from '../components/Markdown/MarkdownRenderer';
 
-export default () => {
+export default (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { location } = props;
   const { lang } = headData;
 
   // hack to allow dynamic paths for groovy-shell
-  // eslint-disable-next-line no-restricted-globals
+  // eslint-disable-next-line react/prop-types
   if (location.pathname.startsWith('/groovy-shell/')) {
-    // eslint-disable-next-line no-restricted-globals
+    // eslint-disable-next-line react/prop-types
     let path = location.pathname.substr('/groovy-shell'.length);
     if (!path.endsWith('/')) {
       path += '/';
