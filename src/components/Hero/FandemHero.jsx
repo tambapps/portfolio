@@ -3,9 +3,10 @@ import Fade from 'react-reveal/Fade';
 import { Link } from 'react-scroll';
 import React from 'react';
 import { heroData } from '../../mock/fandem';
+import { isDesktopFunc } from '../../utils/utils';
 
 export default () => {
-  const isDesktop = window.innerWidth > 769;
+  const isDesktop = isDesktopFunc();
   const isMobile = !isDesktop;
   const { title, subtitle, cta } = heroData;
   return (

@@ -13,8 +13,10 @@ export default () => {
   const { lang } = headData;
 
   // hack to allow dynamic paths for groovy-shell
-  if (window.location.pathname.startsWith('/groovy-shell/')) {
-    let path = window.location.pathname.substr('/groovy-shell'.length);
+  // eslint-disable-next-line no-restricted-globals
+  if (location.pathname.startsWith('/groovy-shell/')) {
+    // eslint-disable-next-line no-restricted-globals
+    let path = location.pathname.substr('/groovy-shell'.length);
     if (!path.endsWith('/')) {
       path += '/';
     }

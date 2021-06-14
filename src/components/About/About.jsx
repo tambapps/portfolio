@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Title from '../Title/Title';
 import AboutImg from '../Image/AboutImg';
 import PortfolioContext from '../../context/context';
+import { isDesktopFunc } from '../../utils/utils';
 
 const About = () => {
   const { about } = useContext(PortfolioContext);
@@ -13,7 +14,7 @@ const About = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth > 769) {
+    if (isDesktopFunc()) {
       setIsDesktop(true);
       setIsMobile(false);
     } else {

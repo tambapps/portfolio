@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-scroll';
 import PortfolioContext from '../../context/context';
+import { isDesktopFunc } from '../../utils/utils';
 
 const Header = () => {
   const { hero } = useContext(PortfolioContext);
@@ -12,7 +13,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth > 769) {
+    if (isDesktopFunc()) {
       setIsDesktop(true);
       setIsMobile(false);
     } else {

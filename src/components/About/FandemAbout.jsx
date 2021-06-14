@@ -4,10 +4,11 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Title from '../Title/Title';
 import AboutImg from '../Image/AboutImg';
 import { aboutData } from '../../mock/fandem';
+import { isDesktopFunc } from '../../utils/utils';
 
 const About = () => {
   const { img, paragraphOne, paragraphTwo, paragraphThree } = aboutData;
-  const isDesktop = window.innerWidth > 769;
+  const isDesktop = isDesktopFunc();
   const isMobile = !isDesktop;
 
   return (

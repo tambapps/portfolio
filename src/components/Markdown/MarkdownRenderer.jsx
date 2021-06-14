@@ -4,11 +4,13 @@ import Fade from 'react-reveal/Fade';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import '../../style/markdown.scss';
 import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { isDesktopFunc } from '../../utils/utils';
 
 const ReactMarkdown = require('react-markdown');
 
 const hComponent = (props, fontSize) => {
-  const isDesktop = window.innerWidth > 769;
+  // eslint-disable-next-line no-restricted-globals
+  const isDesktop = isDesktopFunc();
   const isMobile = !isDesktop;
   let id = null;
   // eslint-disable-next-line react/prop-types
@@ -54,7 +56,7 @@ const components = {
         </div>
       );
     }
-    const isDesktop = window.innerWidth > 769;
+    const isDesktop = isDesktopFunc();
     const isMobile = !isDesktop;
     return (
       <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
@@ -80,7 +82,7 @@ const components = {
   },
   // eslint-disable-next-line react/prop-types
   p({ level, ...props }) {
-    const isDesktop = window.innerWidth > 769;
+    const isDesktop = isDesktopFunc();
     const isMobile = !isDesktop;
     return (
       <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
@@ -94,7 +96,7 @@ const components = {
     );
   },
   ul({ ...props }) {
-    const isDesktop = window.innerWidth > 769;
+    const isDesktop = isDesktopFunc();
     const isMobile = !isDesktop;
     return (
       <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
@@ -133,7 +135,8 @@ class MarkdownRenderer extends React.Component {
     // hack to allow dynamic urls
     if (href.startsWith(prefix)) {
       const prefixToDelete = `${prefix}groovy-shell-user-manual/`;
-      const url = `${window.location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
+      // eslint-disable-next-line no-restricted-globals
+      const url = `${location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
       return url;
     }
     return href;
