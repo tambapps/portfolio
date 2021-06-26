@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/main.scss';
+import '../style/groovy-shell.scss';
 import MarkdownRenderer from '../components/Markdown/MarkdownRenderer';
 
 export default (props) => {
