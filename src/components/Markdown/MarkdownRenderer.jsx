@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import '../../style/markdown.scss';
 import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Helmet } from 'react-helmet';
 import { isDesktopFunc } from '../../utils/utils';
 
 const ReactMarkdown = require('react-markdown');
@@ -124,11 +125,17 @@ class MarkdownRenderer extends React.Component {
     const { url } = this.props;
     fetch(url)
       .then((response) => response.text())
-      .then((text) => this.setState({ markdown: text }));
+      .then((text) => this.setState({ markdown: text.trim() }));
   }
 
   linkTarget = (href) => {
     return href.startsWith(prefix) ? '_self' : '_blank';
+  };
+
+  getFirstLine = (text) => {
+    let index = text.indexOf('\n');
+    if (index === -1) index = undefined;
+    return text.substring(0, index);
   };
 
   transformLinkUri = (href) => {
@@ -144,8 +151,21 @@ class MarkdownRenderer extends React.Component {
 
   render() {
     const { markdown } = this.state;
+    let title = 'Groovy Shell for Android';
+    if (markdown) {
+      const firstLine = this.getFirstLine(markdown);
+      if (firstLine) {
+        title += ` - ${firstLine.trim().substring(1).trim()}`;
+      }
+    }
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{title}</title>
+          <html lang="en" />
+          <meta name="description" content={title} />
+        </Helmet>
         <ReactMarkdown
           components={components}
           linkTarget={this.linkTarget}
