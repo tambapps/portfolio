@@ -85,6 +85,19 @@ const components = {
   p({ level, ...props }) {
     const isDesktop = isDesktopFunc();
     const isMobile = !isDesktop;
+    // eslint-disable-next-line react/prop-types
+    const { children } = props;
+    // hack to display html <a tag
+    // eslint-disable-next-line react/prop-types
+    if (children && children.length === 3 && children[0].toString().trim().startsWith('<a')) {
+      // eslint-disable-next-line react/prop-types
+      const htmlText = children.join();
+      return (
+        <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
+          <div dangerouslySetInnerHTML={{ __html: htmlText }} />
+        </Fade>
+      );
+    }
     return (
       <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
         <p {...props}>
@@ -143,8 +156,7 @@ class MarkdownRenderer extends React.Component {
     if (href.startsWith(prefix)) {
       const prefixToDelete = `${prefix}groovy-shell-user-manual/`;
       // eslint-disable-next-line no-restricted-globals
-      const url = `${location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
-      return url;
+      return `${location.origin}/groovy-shell/${href.substr(prefixToDelete.length)}`;
     }
     return href;
   };
@@ -158,6 +170,16 @@ class MarkdownRenderer extends React.Component {
         title += ` - ${firstLine.trim().substring(1).trim()}`;
       }
     }
+    const { url } = this.props;
+    const optImage =
+      url === 'https://raw.githubusercontent.com/tambapps/groovy-shell-user-manual/main/index.md' &&
+      isDesktopFunc() ? (
+        // eslint-disable-next-line global-require
+        <img src={require('../../images/groovyshell_banner.webp')} alt="groovy" />
+      ) : (
+        <></>
+      );
+
     return (
       <div>
         <Helmet>
@@ -166,6 +188,7 @@ class MarkdownRenderer extends React.Component {
           <html lang="en" />
           <meta name="description" content={title} />
         </Helmet>
+        {optImage}
         <ReactMarkdown
           components={components}
           linkTarget={this.linkTarget}
