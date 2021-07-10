@@ -141,6 +141,17 @@ class MarkdownRenderer extends React.Component {
       .then((text) => this.setState({ markdown: text.trim() }));
   }
 
+  // eslint-disable-next-line no-unused-vars
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { hash } = this.props;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => element.scrollIntoView(), 250);
+      }
+    }
+  }
+
   linkTarget = (href) => {
     return href.startsWith(prefix) ? '_self' : '_blank';
   };
@@ -203,6 +214,7 @@ class MarkdownRenderer extends React.Component {
 
 MarkdownRenderer.propTypes = {
   url: PropTypes.string,
+  hash: PropTypes.string,
 };
 
 export default MarkdownRenderer;
