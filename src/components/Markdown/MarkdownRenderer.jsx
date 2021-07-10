@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Fade from 'react-reveal/Fade';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import '../../style/markdown.scss';
 import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -10,9 +9,6 @@ import { isDesktopFunc } from '../../utils/utils';
 const ReactMarkdown = require('react-markdown');
 
 const hComponent = (props, fontSize) => {
-  // eslint-disable-next-line no-restricted-globals
-  const isDesktop = isDesktopFunc();
-  const isMobile = !isDesktop;
   let id = null;
   // eslint-disable-next-line react/prop-types
   if (props.children.length === 1) {
@@ -20,22 +16,21 @@ const hComponent = (props, fontSize) => {
     id = props.children[0].toString().toLowerCase().replace(/ /g, '-');
   }
   return (
-    <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-      <h3
-        className="hero-title"
-        style={{
-          color: '#ffffff',
-          fontSize,
-        }}
-        {...props}
-        id={id}
-      >
-        {
-          /* eslint-disable-next-line react/prop-types */
-          props.children
-        }
-      </h3>
-    </Fade>
+    <h3
+      className="hero-title"
+      style={{
+        color: '#ffffff',
+        fontSize,
+        marginBottom: '2rem',
+      }}
+      {...props}
+      id={id}
+    >
+      {
+        /* eslint-disable-next-line react/prop-types */
+        props.children
+      }
+    </h3>
   );
 };
 const components = {
@@ -57,13 +52,7 @@ const components = {
         </div>
       );
     }
-    const isDesktop = isDesktopFunc();
-    const isMobile = !isDesktop;
-    return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        {codeComponent}
-      </Fade>
-    );
+    return codeComponent;
   },
   // eslint-disable-next-line react/prop-types
   h1({ level, ...props }) {
@@ -75,16 +64,14 @@ const components = {
   },
   // eslint-disable-next-line react/prop-types
   h3({ level, ...props }) {
-    return hComponent(props, '3.5rem');
+    return hComponent(props, '2.4rem');
   },
   // eslint-disable-next-line react/prop-types
   h4({ level, ...props }) {
-    return hComponent(props, '3.5rem');
+    return hComponent(props, '1.5rem');
   },
   // eslint-disable-next-line react/prop-types
   p({ level, ...props }) {
-    const isDesktop = isDesktopFunc();
-    const isMobile = !isDesktop;
     // eslint-disable-next-line react/prop-types
     const { children } = props;
     // hack to display html <a tag
@@ -92,35 +79,25 @@ const components = {
     if (children && children.length === 3 && children[0].toString().trim().startsWith('<a')) {
       // eslint-disable-next-line react/prop-types
       const htmlText = children.join();
-      return (
-        <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-          <div dangerouslySetInnerHTML={{ __html: htmlText }} />
-        </Fade>
-      );
+      return <div dangerouslySetInnerHTML={{ __html: htmlText }} />;
     }
     return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <p {...props}>
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </p>
-      </Fade>
+      <p {...props}>
+        {
+          /* eslint-disable-next-line react/prop-types */
+          props.children
+        }
+      </p>
     );
   },
   ul({ ...props }) {
-    const isDesktop = isDesktopFunc();
-    const isMobile = !isDesktop;
     return (
-      <Fade left={isDesktop} bottom={isMobile} duration={1000} delay={500} distance="30px">
-        <ul {...props}>
-          {
-            /* eslint-disable-next-line react/prop-types */
-            props.children
-          }
-        </ul>
-      </Fade>
+      <ul {...props}>
+        {
+          /* eslint-disable-next-line react/prop-types */
+          props.children
+        }
+      </ul>
     );
   },
 };
