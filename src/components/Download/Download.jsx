@@ -15,8 +15,8 @@ const Download = () => {
           </h2>
         </Fade>
       </Container>
-      <Row>
-        <Col md={6} sm={12}>
+      <Row xs={1} md={3}>
+        <Col>
           <a
             href="https://play.google.com/store/apps/details?id=com.tambapps.p2p.peer_transfer.android"
             target="_blank"
@@ -28,9 +28,21 @@ const Download = () => {
             </span>
           </a>
         </Col>
-        <Col md={6} sm={12}>
+        <Col>
           <a
-            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/tambapps-fandem-desktop_2.1-1_amd64.deb"
+            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/fandem-desktop_2.1-windows_x64.exe"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="cta-btn cta-btn--hero">
+              <h1 className="hero-title">Windows x64</h1>
+              <DownloadImg alt="Linux" filename="windows.png" />
+            </span>
+          </a>
+        </Col>
+        <Col>
+          <a
+            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/fandem-desktop_2.1-linux_amd64.deb"
             target="_blank"
             rel="noreferrer"
           >
