@@ -30,7 +30,7 @@ const Download = () => {
         </Col>
         <Col>
           <a
-            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/fandem-desktop_2.1-windows_x64.exe"
+            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.2/fandem-desktop-2.2-windows_x64.exe"
             target="_blank"
             rel="noreferrer"
           >
@@ -42,7 +42,7 @@ const Download = () => {
         </Col>
         <Col>
           <a
-            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.1/fandem-desktop_2.1-linux_amd64.deb"
+            href="https://github.com/tambapps/P2P-File-Sharing/releases/download/v2.2/fandem-desktop-2.2-linux_amd64.deb"
             target="_blank"
             rel="noreferrer"
           >
